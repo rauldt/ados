@@ -1,0 +1,61 @@
+{smcl}
+{* *! version 1.2.0  02jun2011}{...}
+{findalias asfradohelp}{...}
+{vieweralsosee "" "--"}{...}
+{vieweralsosee "[R] help" "help help"}{...}
+{viewerjumpto "Syntax" "tablemeanshelpfile##syntax"}{...}
+{viewerjumpto "Description" "tablemeanshelpfile##description"}{...}
+{viewerjumpto "Options" "tablemeanshelpfile##options"}{...}
+{viewerjumpto "Remarks" "tablemeanshelpfile##remarks"}{...}
+{viewerjumpto "Examples" "tablemeanshelpfile##examples"}{...}
+{viewerjumpto "Tempfile" "tablemeanshelpfile##tempfile"}{...}
+
+{title:Title}
+
+{phang}
+{bf:lblcomp} {hline 2} Compares pairs of variables line by line (like SAS proc compare)
+
+
+{marker syntax}{...}
+{title:Syntax}
+
+{p 8 17 2}
+{cmdab:lblcomp}
+{varlist}
+{help using}
+{cmd:,} {cmd:compwith}({help varlist}) [{it:options}]
+
+
+{synoptset 20 tabbed}{...}
+{synopthdr}
+{synoptline}
+{syntab:Main}
+{synopt:{opth comp:with(varlist)}}variables from using dataset to be compared against variables defined in main {it:varlist}{p_end}
+{synopt:{opth sort:(varlist)}}sorts {it:using} dataset{p_end}
+{synopt:{opt cases}(integer)}maximum lines per pair of differing variables to display; default is 50{p_end}
+{synoptline}
+{p2colreset}{...}
+
+{marker description}{...}
+{title:Description}
+
+{pstd}
+{cmd:lblcomp} Compares variable(s) {cmd:a}, from loaded dataset, with variable(s) {cmd:b}- from {it:using} dataset; the number of elements in each {it: {help varlist}} must be the same
+
+
+{marker remarks}{...}
+{title:Remarks}
+
+{phang} {it:compwith} even if the comparison is within the same dataset, {it:using} must be defined
+
+
+{marker examples}{...}
+{title:Examples}
+
+{phang}{cmd:. lblcomp} mpg weight using "C:\Users\user\Desktop\auto_2.dta", {cmd: comp}(mpg weight_2) {cmd:sortby}(make){p_end}
+{phang}{cmd:. lblcomp} mpg weight using "C:\MPR\Stata12\ado\base/a/auto.dta", {cmd: comp}(mpg weight) {cmd:cases}(15){p_end}
+
+
+
+
+  
